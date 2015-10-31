@@ -6,18 +6,33 @@
         timer;
 
     $(function(){
-        $.get(resource, function (data) {
-            timer = new Timer('#seconds', '#wait', data);
-            setInterval(function () {
-                timer.countdown(interval);
-            }, interval * 1000);
-        });
+        timer = new Timer('#seconds', '#wait');
+        setInterval(function () {
+            timer.countdown(interval);
+        }, interval * 1000);
+
     });
 
-    function Timer(countdownSelector, waitSelector, dataSet) {
+    function Product(data, lang) {
+        var price = data.masterVariant.prices[0].value;
+        this.title = data.name[lang];
+        this.description = data.description[lang];
+        this.image = data.masterVariant.images[0].url;
+        this.price = price.centAmount / 100 + " " + price.currencyCode;
+    }
+
+    Product.prototype.display = function () {
+        $('.title').html(this.title);
+        $('.description').html(this.description);
+        $('.price').html(this.price);
+        $('.image img').attr('src', this.image);
+
+        return this;
+    };
+
+    function Timer(countdownSelector, waitSelector) {
         this.countdownElem = $(countdownSelector);
         this.waiterElem = $(waitSelector);
-        this.dataSet = JSON.parse(dataSet);
         this.breakPoint = 0;
         this.currentPause = flipRate;
         this.currentVal = 0;
@@ -61,6 +76,10 @@
         }
 
         if($('#flashSale').hasClass('out')) {
+            $.get(resource, function (dataSet) {
+                var data = JSON.parse(dataSet),
+                    product = new Product(data.results[0], lang).display();
+            });
             $(".waitContainer").hide().addClass('out');
             $('#flashSale').show().delay(100).queue(function(next) {
                $(this).removeClass('out');
