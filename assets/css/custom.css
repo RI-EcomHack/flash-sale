@@ -1,0 +1,52 @@
+body {
+    background: #F7F7F7;
+    padding: 30px;
+}
+
+body h1{
+    font-size: 7.5rem;
+    color: #e3e3e3;
+
+}
+
+body .container {
+
+}
+
+body .header{
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px dashed #0f0f0f;
+}
+
+
+body .product .title {
+    text-align: center;
+    padding: 20px 0 5px 0;
+}
+
+body .product .description {
+    padding: 5px 25px;
+}
+
+
+body .timer {
+    text-align: center;
+    margin: 20% 0;
+}
+
+body .stitched {
+    max-width: 100%;
+    padding: 0;
+    background: #e3e3e3;
+    color: #fff;
+    font-size: 21px;
+    line-height: 1.3em;
+    border: 2px dashed #0f0f0f;
+    border-radius: 10px;
+    box-shadow: 0 0 0 4px #f7f7f7, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+    text-shadow: -1px -1px #0f0f0f;
+    font-weight: normal;
+}
