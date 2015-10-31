@@ -8,40 +8,46 @@
     <title>The Countdown!</title>
 </head>
 <body>
-    <div class="small-12 columns container stitched">
-        <div class="row header">
-            <div class="large-12 columns">
-                <h3>
-                    Flush sale
-                </h3>
-            </div>
-        </div>
-        <div class="row body">
-            <div class="large-5 columns">
-                <div class="row product">
-                    <div class="large-12 columns title">
-                        Shirt shirt!
-                    </div>
-                    <div class="large-12 columns image">
-                        <img src="assets/img/ice-cream-transparent-background.png"
-                             alt="shirty shirt">
-                    </div>
-                    <div class="large-12 columns description">
-                        Neque porro quisquam est qui
-                        dolorem ipsum quia dolor sit amet,
-                        consectetur, adipisci velit..
-                    </div>
+    <span class="waitContainer">
+            Next flash-sale is in <span id="wait"></span>
+        </span>
+    <div class="small-12 columns container stitched out" id="flashSale">
+
+        <div class="flushCountdownContainer ">
+            <div class="row header">
+                <div class="large-12 columns">
+                    <h3>
+                        Flash sale
+                    </h3>
                 </div>
             </div>
-            <div class="large-7 columns timer">
-                <h1>
-                    00:
-                    <span id="seconds">30</span>
-                </h1>
+            <div class="row body">
+                <div class="large-5 columns">
+                    <div class="row product">
+                        <div class="large-12 columns title">
+                            Shirt shirt!
+                        </div>
+                        <div class="large-12 columns image">
+                            <img src="assets/img/ice-cream-transparent-background.png"
+                                 alt="shirty shirt">
+                        </div>
+                        <div class="large-12 columns description">
+                            Neque porro quisquam est qui
+                            dolorem ipsum quia dolor sit amet,
+                            consectetur, adipisci velit..
+                        </div>
+                    </div>
+                </div>
+                <div class="large-7 columns timer">
+                    <h1>
+                        00:
+                        <span id="seconds">30</span>
+                    </h1>
+                </div>
             </div>
-        </div>
-        <div class="row footer">
+            <div class="row footer">
 
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>

@@ -13,6 +13,71 @@ body .container {
 
 }
 
+#block {
+    border: 2px dashed #0f0f0f;
+    border-radius: 10px;
+    height:100%;
+    display: block;
+    z-index: 100;
+    text-align: center;
+    max-width: 100%;
+    padding: 0;
+    background: #e3e3e3;
+    color: #fff;
+    font-size: 21px;
+    line-height: 1.3em;
+    box-shadow: 0 0 0 4px #f7f7f7, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+    text-shadow: -1px -1px #0f0f0f;
+    font-weight: normal;
+}
+
+.waitContainer {
+    margin-top: 25%;
+    display: block;
+    text-align: center;
+    font-size:35px;
+    max-width: 100%;
+    padding: 0;
+    color: #fff;
+    line-height: 1.3em;
+    text-shadow: -1px -1px #0f0f0f;
+    font-weight: normal;
+    opacity: 1;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.waiterContainer.out {
+    opacity: 0;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+#flashSale {
+    z-index: 200;
+    opacity: 1;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+#flashSale.out {
+    opacity: 0;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
 body .header{
     width: 100%;
     max-width: 100%;
@@ -32,7 +97,7 @@ body .product .description {
 }
 
 
-body .timer {
+body .r {
     text-align: center;
     margin: 20% 0;
 }
