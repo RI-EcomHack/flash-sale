@@ -1,7 +1,7 @@
 !(function(window, $) {
     var interval = 1,
         flipRateOn = 60,
-        flipRateWait = 6,
+        flipRateWait = 30,
         lang = 'en',
         resource = 'http://5.196.27.161:8080/flash_sale',
         timer;
