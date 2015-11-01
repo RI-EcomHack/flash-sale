@@ -1,6 +1,7 @@
 !(function(window, $) {
     var interval = 1,
-        flipRate = 10,
+        flipRateOn = 60,
+        flipRateWait = 6,
         lang = 'en',
         resource = 'http://5.196.27.161:8080/flash_sale',
         timer;
@@ -34,7 +35,7 @@
         this.countdownElem = $(countdownSelector);
         this.waiterElem = $(waitSelector);
         this.breakPoint = 0;
-        this.currentPause = flipRate;
+        this.currentPause = flipRateWait * 2;
         this.currentVal = 0;
         this.countdownElem.html(this.currentVal);
         this.waiterElem.html(this.currentPause);
@@ -58,7 +59,13 @@
 
         if (this.currentPause > this.breakPoint) {
             this.currentPause -= interval;
-            this.waiterElem.html(this.currentPause);
+            var newWaitVal = this.currentPause;
+            if (this.currentPause < 10) {
+                newWaitVal = '0' + this.currentPause;
+                $(".waitContainer").addClass('blink').addClass('big');
+            }
+
+            this.waiterElem.html(newWaitVal);
         } else if($("#flashSale").hasClass('out')) {
             this.flip(true);
         }
@@ -66,11 +73,11 @@
 
     Timer.prototype.flip = function(isOn) {
         if (isOn) {
-            this.currentVal = flipRate;
+            this.currentVal = flipRateOn;
 
 
         } else {
-            this.currentPause = flipRate;
+            this.currentPause = flipRateWait;
             $(".waitContainer").show();
 
         }
@@ -80,7 +87,12 @@
                 var data = JSON.parse(dataSet),
                     product = new Product(data.results[0], lang).display();
             });
-            $(".waitContainer").hide().addClass('out');
+            $(".waitContainer").removeClass('big')
+                .removeClass('blink').delay(100).queue(function(next) {
+                    $(this).addClass('out');
+                    $(this).hide();
+                    next();
+                });
             $('#flashSale').show().delay(100).queue(function(next) {
                $(this).removeClass('out');
                 next()
@@ -88,7 +100,7 @@
         } else {
             $('#flashSale').hide().addClass('out');
             $(".waitContainer").show().delay(100).queue(function(next) {
-                $(this).removeClass('out');
+                $(this).addClass('big').removeClass('out');
                 next()
             });
         }
